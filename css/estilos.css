@@ -1,0 +1,480 @@
+body{background-color:#FFFFFF;margin:0}
+body, div, td, input, select, textarea{font-family:verdana,helvetica; font-size:10px; color:#626262;}
+input, textarea, select{border: #9D9A96 1px solid; font-size:10px; color:#5C5C5C;}
+textarea, iframe{overflow:auto}
+img {
+	border: 0;
+}
+.cabecalho {
+	BORDER-BOTTOM: #91b1d0 1px solid;
+}
+div.borda-cabecalho-paginacao {
+	BORDER-RIGHT: #91b1d0 1px solid;
+	BORDER-TOP: #91b1d0 1px solid;
+	BORDER-LEFT: #91b1d0 1px solid;
+}
+table.borda-paginacao {
+	BORDER-RIGHT: #91b1d0 1px solid;
+	BORDER-BOTTOM: #91b1d0 1px solid;
+	BORDER-LEFT: #91b1d0 1px solid;
+}
+.lista-checkbox {
+	BORDER-RIGHT: #91b1d0 1px solid; BORDER-TOP: #91b1d0 1px solid; OVERFLOW-Y: auto; OVERFLOW-X: hidden; BORDER-LEFT: #91b1d0 1px solid; WIDTH: 180px; BORDER-BOTTOM: #91b1d0 1px solid; HEIGHT: 65px
+}
+.txt_tabela_header{
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+		background-image:url(/netcobranca/common/imgs/fundo_tabela.gif);
+}
+.border-cinza {
+	BORDER-RIGHT: #626262 1px solid;
+	BORDER-TOP: #626262 1px solid;
+	BORDER-LEFT: #626262 1px solid;
+	BORDER-BOTTOM: #626262 1px solid;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #626262;
+	font-size: 11px;
+}
+.border-cinza_combo {
+	BORDER-RIGHT: #626262 1px solid;
+	BORDER-TOP: #626262 1px solid;
+	BORDER-LEFT: #626262 1px solid;
+	BORDER-BOTTOM: #626262 1px solid;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #626262;
+	font-size: 9px;
+}
+
+.border-azul {
+	BORDER-RIGHT: #91b1d0 1px solid; BORDER-TOP: #91b1d0 1px solid; BORDER-LEFT: #91b1d0 1px solid; BORDER-BOTTOM: #91b1d0 1px solid
+}
+
+.titulo-central {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 10pt;
+	COLOR: #3193b7;
+	BORDER-BOTTOM: #91b1d0 1px solid;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.tbl_titulo
+{
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight:bold;
+	color:#ffffff;
+	background-color:#2F8EE4; 
+	line-height: 14px;
+	text-indent: 3px;
+	/* background-image:url(/FrontOfficeWeb/resources/images/bcliente_bg.gif); */
+}
+
+.titulo-central-txt {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 10pt;
+	COLOR: #3193b7;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.txtTabela {
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.txtTabelaPA {
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+}
+
+.bg-branca {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #626262;
+}
+.bg-branca_combo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #626262;
+}
+
+.bg-cinza-6 {
+	BACKGROUND-COLOR: #f7f7f7;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #626262;
+}
+
+
+.bg-cinza-6PA {
+	BACKGROUND-COLOR: #f7f7f7;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #626262;
+}
+
+.bg-cinza-7PA {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #626262;
+}
+
+.bg-destaque {
+	BACKGROUND-COLOR: #87CEEB;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #626262;
+}
+
+.texto 
+{
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #6593a0; font-family: Arial, Helvetica, sans-serif;
+}
+
+.textoBoldRed 
+{
+	font-weight : bold;
+    color       : red
+}
+
+.textoBoldBlue 
+{
+	font-weight : bold;
+    color       : blue
+}
+
+.showTable 
+{
+	display : block;
+    border  : 0
+}
+      
+.hideTable 
+{
+	display : none;
+    border  : 0
+}
+
+.txt
+{
+    FONT-SIZE: 10pt;
+    COLOR: #626262;
+    FONT-FAMILY: Verdana
+}
+.txt_contestacao
+{
+   font-size: 11px;
+    COLOR: #626262;
+   font-family: Arial, Helvetica, sans-serif;
+}
+.txt_contestacao_historico
+{
+   font-size: 11px;
+    COLOR: #626262;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.txt2
+{
+    FONT-SIZE: 8pt;
+    COLOR: #626262;
+    FONT-FAMILY: Verdana
+}
+.txtDinamic {
+	BORDER-RIGHT: #ffffff 1px solid;
+	BORDER-TOP: #ffffff 1px solid;
+	BORDER-LEFT: #ffffff 1px solid;
+	BORDER-BOTTOM: #ffffff 1px solid;
+	color: #626262;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.txtTabela {
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+}
+.txtTabela_historico {
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+.titulo1
+{
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 18pt;
+    COLOR: black;
+    FONT-FAMILY: Verdana
+}
+.titulo2
+{
+ 
+    FONT-SIZE: 15pt;
+    COLOR: black;
+    FONT-FAMILY: Verdana
+}
+.tituloTopo
+{
+    font-style: italic;
+    FONT-SIZE: 14pt;
+    COLOR: navy;
+    FONT-FAMILY: Verdana
+}
+.bto
+{
+    BORDER-RIGHT: #394c63 1pt inset;
+    PADDING-RIGHT: 3px;
+    BORDER-TOP: #394c63 1pt inset;
+    PADDING-LEFT: 3px;
+    FONT-SIZE: 8pt;
+    TEXT-TRANSFORM: capitalize;
+    BORDER-LEFT: #394c63 1pt inset;
+    COLOR: #394c63;
+    BORDER-BOTTOM: #394c63 1pt inset;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: white;
+    CURSOR:hand;
+    TEXT-ALIGN: center
+}
+.ttltab1
+{
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 10pt;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #394c63;
+}
+.ttltab2
+{
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 10pt;
+    COLOR: black;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: silver
+}
+.ttltab3
+{
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 10pt;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #394c63;
+}
+.ttltab4
+{
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 10pt;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: red
+}
+.ttltab5
+{
+    FONT-WEIGHT: bolder;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR:#330099;
+}
+.ttltab6
+{
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR:#FFFFCC;
+}
+.ttltab7
+{
+    FONT-WEIGHT: bolder;
+    COLOR: black;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: silver
+}
+
+.ttltab15
+{
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 8pt;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #004F9D;
+}
+.ttltab16
+{
+    FONT-SIZE: 8pt;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #E5E5E5;
+}
+
+
+.ttltab8
+{
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 8pt;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #394c63;
+}
+a.ttltab8:link
+{
+	text-decoration: underline;
+	color: #FFFFFF;
+}
+a.ttltab8:active
+{
+	text-decoration: none;
+	color: #FFFFFF;
+}
+a.ttltab8:hover
+{
+	text-decoration: underline;
+	color: #717171;
+}
+a.ttltab8:visited
+{
+	text-decoration: underline;
+	color: FFFFFF;
+}
+
+
+.ttltab9
+{
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #DFDFDF;
+    color:3193B7;
+}
+.ttltab10
+{
+    FONT-WEIGHT: bolder;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    FONT-SIZE: 8pt;
+    BACKGROUND-COLOR:#330099;
+}
+.frmchk
+{
+    FONT-SIZE: 9pt;
+    COLOR: black;
+    FONT-FAMILY: Verdana
+}
+.frmtxt
+{
+    BORDER-RIGHT: thin inset  solid 1px;
+    BORDER-TOP: thin inset  solid 1px;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: thin inset  solid 1px;
+    COLOR: black;
+    BORDER-BOTTOM: thin inset  solid 1px;
+    FONT-FAMILY: Verdana
+}
+.tdComponent {
+	background-color: #eeeeee;
+}
+
+.linhaImpar {
+	background-color: #eeeeee;
+  }
+.linhaPar {
+  background-color: #ffffff;
+}
+.liberado {
+  color: green;
+  FONT-WEIGHT: bolder
+  
+}
+.bloqueado {
+  color: red;
+  FONT-WEIGHT: bolder
+}
+
+.stacktrace {
+ 	border: 1px solid black;
+	padding: 5px;
+	overflow:auto;
+	height: 300px;
+	color: darkred;
+	TEXT-ALIGN: left;
+}
+
+div.messageBox {
+	background-color:#FFFFCC;
+	background-position:20px 14px;
+	background-repeat:no-repeat;
+	border:1px solid #FFCC00;
+	font-size:10px;
+	margin:0pt 0pt 10px;
+	min-height:24px;
+	padding:6px 40px 0pt 6px;
+	width:auto;
+}
+
+div.messageBox.error {
+	background-color:#EFF7FE;
+	border-color:#83A8CC;
+	color:#C60000;
+	padding-left:80px;
+}
+
+div.messageBox.notification {
+	background-color:#EFF7FE;
+	border-color:#83A8CC;
+	color:#000000;
+	padding-left:80px;
+}
+
+.error {
+	color: #C60000;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.notification {
+	color: #000000;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.checkbox {
+	background-color: white; 
+	border: 0px solid white; 
+}
+
+.breadcrumb {
+	COLOR: #717171;
+	FONT-SIZE: 8pt;
+}
+.txt_tabela_header_contest{
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+		background-image:url(/netcobranca/common/imgs/fundo_tabela.gif);
+}
+.bg-branca-contest{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #626262;
+}
+.popupWindowCaptcha {
+	z-index:11;
+	text-align: left;
+	margin:auto;
+	color:#ffffff;
+	background-color:white;
+	width:400px; 
+	height:250px;
+}
+.captcha-border{
+	border:1px solid black;
+	width:320px;
+	height:70px;
+}
+.captcha-color{
+	color:#626262;
+}
