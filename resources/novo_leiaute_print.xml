@@ -1,0 +1,1505 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<leiauteGravacao formato="PRINT" nome="PRT"
+		formatoResources="br/com/netservicos/novosms/emissao/resources/applicationContext-formatador.xml">
+	<!-- Linha em Branco -->
+	<linha tipo="0">
+		<!-- Tipo de registro igual a 00 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="00" />
+	</linha>
+ 
+    <!-- Cabeçalho (Header) do Arquivo -->
+	<linha tipo="1">
+		<!-- Tipo de registro igual a 01 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="01" />
+
+		<!-- Código do registro de emissão -->
+		<atributo formato="NUMERO" inicio="3" tamanho="5" nome="CODIGOREGISTROEMISSAO"/>
+
+		<!-- Data início de geração do arquivo (DD/MM/AAAA) -->
+		<atributo formato="DATA" inicio="8" tamanho="10" nome="DATAINICIOGERACAOARQUIVO"/>
+
+		<!-- Hoje início de geração do arquivo (HH:MM:SS) -->
+		<atributo formato="HORA" inicio="18" tamanho="8" nome="HORAINICIOGERACAOARQUIVO"/>
+
+		<!-- Marca d'água -->
+		<atributo formato="ALFA" inicio="26" tamanho="20" nome="MARCADAGUA"/>
+	</linha>
+
+	<!-- Operação NET  -->
+	<linha tipo="2">
+		<!-- Tipo de registro igual a 02 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="02" />
+
+		<!-- Código da operação NET -->
+		<atributo formato="NUMERO" inicio="3" tamanho="3" nome="CODIGOOPERACAONET"/>
+
+		<!-- Nome da operação NET -->
+		<atributo formato="ALFA" inicio="6" tamanho="40" nome="NOMEOPERACAONET"/>
+
+		<!-- Endereço (Rua + Número) -->
+		<atributo formato="ALFA" inicio="46" tamanho="40" nome="ENDERECO"/>
+
+		<!-- Bairro -->
+		<atributo formato="ALFA" inicio="86" tamanho="40" nome="BAIRRO"/>
+
+		<!-- Cidade -->
+		<atributo formato="ALFA" inicio="126" tamanho="40" nome="CIDADE"/>
+
+		<!-- Estado -->
+		<atributo formato="ALFA" inicio="166" tamanho="2" nome="ESTADO"/>
+
+		<!-- CEP -->
+		<atributo formato="ALFA" inicio="168" tamanho="9" nome="CEP"/>
+
+		<!-- CNPJ -->
+		<atributo formato="ALFA" inicio="177" tamanho="30" nome="CNPJ"/>
+
+		<!-- Inscrição Estadual -->
+		<atributo formato="ALFA" inicio="207" tamanho="30" nome="INSCRICAOESTADUAL"/>
+
+		<!-- Inscrição Municipal -->
+		<atributo formato="ALFA" inicio="237" tamanho="30" nome="INSCRICAOMUNICIPAL" obrigatorio="NAO" />
+		
+		<!-- Nome Fantasia da operação NET -->
+		<atributo formato="ALFA" inicio="267" tamanho="20" nome="NOMEFANTASIAOPERACAONET"/>
+		
+	</linha>
+
+	<!-- Mensagem  -->
+	<linha tipo="3">
+		<!-- Tipo de registro igual a 03 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="03" />
+
+		<!-- Código da operadora -->
+		<atributo formato="NUMERO" inicio="3" tamanho="5" nome="CODIGOOPERADORA"/>
+
+		<!-- Prefixo -->
+		<atributo formato="ALFA" inicio="8" tamanho="5" nome="PREFIXO"/>
+
+		<!-- Código da setorização da mensagem -->
+		<atributo formato="ALFA" inicio="13" tamanho="5" nome="CODIGOSETORIZACAOMENSAGEM"/>
+
+		<!-- Mensagem -->
+		<atributo formato="ALFA" inicio="18" tamanho="390" nome="MENSAGEM"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="NUMERO" inicio="408" tamanho="2" nome="FORMATACAO"/>
+		
+		<!-- NTLC Flag da Mensagem de Quitacao ser associada a Fatura-->
+		<atributo formato="ALFA" inicio="410" tamanho="2" nome="FLAGMSGQUITACAO"/>
+	</linha>
+
+	<!-- Bancos conveniados -->
+	<linha tipo="4">
+		<!-- Tipo de registro igual a 04 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="04" />
+
+		<!-- Nome do banco -->
+		<atributo formato="ALFA" inicio="3" tamanho="50" nome="BANCO"/>
+	</linha>
+
+	<!-- Inicio da Fatura (Header) -->
+	<linha tipo="5">
+		<!-- Tipo de registro igual a 05 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="05" />
+
+		<!-- Prefixo -->
+		<atributo formato="ALFA" inicio="3" tamanho="5" nome="PREFIXO"/>
+
+		<!-- Código do lote -->
+		<atributo formato="ALFA" inicio="8" tamanho="15" nome="CODIGOLOTE"/>
+
+		<!-- Label: Cliente -->
+		<atributo formato="ALFA" inicio="23" tamanho="10" nome="LABELCLIENTE" valor="Cliente"/>
+		
+		<!-- Nome do Cliente -->
+		<atributo formato="ALFA" inicio="33" tamanho="40" nome="NOMECLIENTECOBRANCA"/>
+
+		<!-- Label: Endereço -->
+		<atributo formato="CONST" inicio="73" tamanho="10" nome="LABELENDERECO" valor="Endereço"/>
+
+		<!-- Endereço (rua + número + complemento) -->
+		<atributo formato="ALFA" inicio="83" tamanho="80" nome="LOGRADOUROCOBRANCA"/>
+
+		<!-- Label: Bairro -->
+		<atributo formato="CONST" inicio="163" tamanho="10" nome="LABELBAIRRO" valor="Bairro"/>
+
+		<!-- Bairro -->
+		<atributo formato="ALFA" inicio="173" tamanho="40" nome="BAIRROCOBRANCA"/>
+
+		<!-- Label: Cidade -->
+		<atributo formato="CONST" inicio="213" tamanho="10" nome="LABELCIDADE" valor="Cidade"/>
+
+		<!-- Cidade -->
+		<atributo formato="ALFA" inicio="223" tamanho="40" nome="CIDADECOBRANCA"/>
+
+		<!-- Label: Estado -->
+		<atributo formato="CONST" inicio="263" tamanho="10" nome="LABELESTADO" valor="Estado"/>
+
+		<!-- Estado (ex.: "/SP", "/RJ", "/BA") -->
+		<atributo formato="ALFA" inicio="273" tamanho="3" nome="ESTADOCOBRANCA"/> 
+
+		<!-- Label: CEP -->
+		<atributo formato="CONST" inicio="276" tamanho="5" nome="LABELCEP" valor="Cep"/>
+
+		<!-- CEP -->
+		<atributo formato="ALFA" inicio="281" tamanho="9" nome="CEPCOBRANCA"/>
+
+		<!-- ID do boleto -->
+		<atributo formato="NUMERO" inicio="290" tamanho="15" nome="IDENTIFICADORBOLETO"/>
+
+		<!-- ID do boleto origem -->
+		<atributo formato="NUMERO" inicio="305" tamanho="15" nome="IDENTIFICADORBOLETOORIGEM"/>
+
+		<!-- Código do cliente NET -->
+		<atributo formato="ALFA" inicio="320" tamanho="20" nome="CODIGOCLIENTENET"/>
+		
+		<!-- Código do cliente EBT -->
+		<atributo formato="ALFA" inicio="340" tamanho="20" nome="CODIGOCLIENTEEBT"/>
+		
+		<!-- Mensagem Fust -->
+		<atributo formato="ALFA" inicio="360" tamanho="60" nome="FUST"   />		
+		
+		<!-- Mensagem Funttel-->
+		<atributo formato="ALFA" inicio="420" tamanho="60" nome="FUNTEL"  />		
+
+		<!-- Código de formatação da linha-->
+
+		<!-- Mensagem Ebt-->
+-		<atributo formato="ALFA" inicio="480" tamanho="1" nome="MENSAGEMEBT" obrigatorio="NAO"/>
+		<!-- Código de formatação da linha
+
+                Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        	-->
+		
+		
+        	<!-- ID do boleto origem -->
+		<atributo formato="NUMERO" inicio="481" tamanho="3" nome="CODIGOBANCO"/>
+        	
+        	
+		<atributo formato="CONST" inicio="484" tamanho="2" nome="FORMATACAO" valor="01"/>
+		
+		<!-- Forma de Envio da Fatura -->
+		<atributo formato="NUMERO" inicio="486" tamanho="1" nome="FORMAENVIOFATURA" obrigatorio="NAO"/>
+		
+		<!-- Forma de Envio da Fatura -->
+		<atributo formato="ALFA" inicio="487" tamanho="11" nome="BASE" obrigatorio="NAO"/>
+		
+		<!-- Cidade Contrato -->
+		<atributo formato="ALFA" inicio="498" tamanho="6" nome="CIDCONTRATO" obrigatorio="NAO"/>
+		
+		<!-- Tipo de Cobrança -->
+		<atributo formato="NUMERO" inicio="504" tamanho="1" nome="TIPOCOBRANCA" obrigatorio="NAO"/>
+		
+		<!-- E-mail origem -->
+		<atributo formato="ALFA" inicio="505" tamanho="50" nome="EMAILORIGEM" obrigatorio="NAO"/>
+		
+		<!-- E-mail destino -->
+		<atributo formato="ALFA" inicio="555" tamanho="50" nome="EMAILDESTINO" obrigatorio="NAO"/>
+		
+		<!-- Link não optantes-->
+		<atributo formato="ALFA" inicio="605" tamanho="200" nome="LINKNAOOPTANTE" obrigatorio="NAO"/>
+		
+		<!-- Mês vencimento no e-mail -->
+		<atributo formato="ALFA" inicio="805" tamanho="15" nome="MESVENCIMENTO" obrigatorio="NAO"/>
+		
+		<!-- Declaracao Anual de Debito NET-->
+		<atributo formato="ALFA" inicio="820" tamanho="69" nome="DECLARANUALDEBITONET" obrigatorio="NAO"/>
+
+		<!-- Migração de Política - Padronização Políticas-->
+		<atributo formato="ALFA" inicio="889" tamanho="1" nome="MIGRACAOPADPOL" obrigatorio="NAO"/>		
+		
+		<!-- Declaracao Anual de Debito EBT-->
+		<atributo formato="ALFA" inicio="890" tamanho="70" nome="DECLARANUALDEBITOEBT" obrigatorio="NAO"/>
+		
+		<!-- NTLC Identificador da Mensagem de Quitacao-->
+		<atributo formato="ALFA" inicio="960" tamanho="2" nome="IDENTIFICADORMENSAGEM" obrigatorio="NAO"/>			
+		
+		<!-- NTLC Indica as mensagens relaciondas ao Claro Clube -->
+		<atributo formato="ALFA" inicio="962" tamanho="500" nome="MENSAGEMCLAROCLUBE" obrigatorio="NAO"/>		
+		
+		<atributo formato="NUMERO" inicio="1462" tamanho="10" nome="NUMEROCOBRANCA"/>
+		<atributo formato="ALFA" inicio="1472" tamanho="100" nome="COMPLEMENTOCOBRANCA"/>		
+		
+	</linha>
+
+	<!-- Mensagem inicio Fatura -->
+	<linha tipo="6">
+		<!-- Tipo de registro igual a 06 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="06"/>
+		
+		<!-- Label -->
+		<atributo formato="CONST" inicio="3" tamanho="41" nome="LABELMENSAGEMNOTAFISCAL" valor="NOTA FISCAL DE SERVIÇOS DE COMUNICAÇÃO - "/>
+
+		<!-- Label -->
+		<atributo formato="CONST" inicio="44" tamanho="4" nome="LABELMENSAGEMMODELO" valor="MOD "/>
+
+		<!-- modelo da nota fiscal -->
+		<atributo formato="ALFA" inicio="48" tamanho="3" nome="MODELONOTAFISCAL"/>
+
+		<!-- Label -->
+		<atributo formato="CONST" inicio="51" tamanho="15" nome="LABELMENSAGEMVIAUNICA" valor=" - VIA ÚNICA - "/>
+
+		<!-- Label -->
+		<atributo formato="CONST" inicio="66" tamanho="6" nome="LABELMENSAGEMSERIE" valor="SERIE "/>
+
+		<!-- serie da nota fiscal -->
+		<atributo formato="ALFA" inicio="72" tamanho="10" nome="SERIENOTAFISCAL"/>
+
+
+		<!-- Código de formatação da linha
+
+                Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        	-->
+		<atributo formato="CONST" inicio="98" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Dados do assinante NET - para 2 via do boleto -->
+	<linha tipo="7">
+		<!-- Tipo de registro igual a 07 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="07"/>
+		
+		<!-- Label: codigo -->
+		<atributo formato="CONST" inicio="3" tamanho="10" nome="LABELCODIGO" valor="Código"/>
+
+		<!-- Código do cliente NET -->
+		<atributo formato="ALFA" inicio="13" tamanho="20" nome="CODIGOCLIENTENET"/>
+
+		<!-- Label: cpf/cnpj -->
+		<atributo formato="CONST" inicio="33" tamanho="10" nome="LABELCPFCNPJ" valor="CPF/CNPJ"/>
+
+		<!-- CPF/CNPJ -->
+		<atributo formato="ALFA" inicio="43" tamanho="30" nome="CPFCNPJCOBRANCA"/>
+
+		<!-- Label: I. E. -->
+		<atributo formato="CONST" inicio="73" tamanho="10" nome="LABELINSCRICAOESTADUAL" valor="I.E."/>
+
+		<!-- Inscrição Estadual (cliente) -->
+		<atributo formato="ALFA" inicio="83" tamanho="30" nome="INSCRICAOESTADUALCOBRANCA"/>
+
+		<!-- Label: emissao -->
+		<atributo formato="CONST" inicio="113" tamanho="10" nome="LABELDATAEMISSAO" valor="Emissão"/>
+
+		<!-- Data de emissão da nota fiscal (DD/MM/AAAA) -->
+		<atributo formato="DATA" inicio="123" tamanho="10" nome="DATAPROCESSAMENTOBOLETO"/>
+
+		<!-- Label: codigo boleto -->
+		<atributo formato="CONST" inicio="133" tamanho="15" nome="LABELCODIGOBOLETO" valor="Código Boleto"/>
+
+		<!-- codigo do boleto -->
+		<atributo formato="NUMERO" inicio="148" tamanho="15" nome="IDENTIFICADORBOLETO"/>
+
+		<!-- Label: data de vencimento (atual) -->
+		<atributo formato="CONST" inicio="163" tamanho="20" nome="LABELDATAVENCIMENTO" valor="Vencto Atual"/>
+
+		<!-- Data de Vencimento atual da fatura (DD/MM/AAAA)-->
+		<atributo formato="DATA" inicio="183" tamanho="10" nome="DATAVENCIMENTOBOLETO"/>
+
+		<!-- Label: data de vencimento original -->
+		<atributo formato="CONST" inicio="193" tamanho="20" nome="LABELDATAVENCIMENTOORIGINAL" valor="Vencto Original"/>
+
+		<!-- Data de Vencimento original da fatura (DD/MM/AAAA)-->
+		<atributo formato="DATA" inicio="213" tamanho="10" nome="DATAVENCIMENTOBOLETOORIGEM"/>
+
+		<!-- Código de formatação da linha
+
+                Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        	-->
+		<atributo formato="CONST" inicio="223" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Início do Titulo / NF NET (Header)	-->
+	<linha tipo="10">
+		<!-- Tipo de registro igual a 10 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="10"/>
+	</linha>
+
+	<!-- Cabeçalho - Marca inicio da página -->
+	<linha tipo="11">
+		<!-- Tipo de registro igual a 11 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="11"/>
+
+		<!-- Label: Paginação da fatura -->
+		<atributo formato="CONST" inicio="3" tamanho="10" nome="LABELPAGINAFATURA" valor="PAG. F."/>
+
+		<!-- Controle de paginação (ex.: 01/03) -->
+		<atributo formato="ALFA" inicio="13" tamanho="10" nome="CONTROLEPAGINACAO"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="23" tamanho="2" nome="FORMATACAO" valor="01" />
+	</linha>
+
+	<!-- Dados do Assinante NET - Com dados da NF -->
+	<linha tipo="12">
+		<!-- Tipo de registro igual a 12 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="12"/>
+
+		<!-- Label: Endereco -->
+		<atributo formato="CONST" inicio="3" tamanho="10" nome="LABELENDERECO" valor="Endereço"/>
+
+		<!-- Endereço (rua + número + complemento) -->
+		<atributo formato="ALFA" inicio="13" tamanho="80" nome="ENDERECONOTAFISCAL"/>
+
+		<!-- Label: Bairro -->
+		<atributo formato="CONST" inicio="93" tamanho="8" nome="LABELBAIRRO" valor="Bairro"/>
+
+		<!-- Bairro -->
+		<atributo formato="ALFA" inicio="101" tamanho="40" nome="BAIRRONOTAFISCAL"/>
+
+		<!-- Label: Cidade -->
+		<atributo formato="CONST" inicio="141" tamanho="10" nome="LABELCIDADE" valor="Cidade"/>
+
+		<!-- Cidade -->
+		<atributo formato="ALFA" inicio="151" tamanho="40" nome="CIDADENOTAFISCAL"/>
+
+		<!-- Label: Estado -->
+		<atributo formato="CONST" inicio="191" tamanho="10" nome="LABELESTADO" valor="Estado"/>
+
+		<!-- Estado -->
+		<atributo formato="ALFA" inicio="201" tamanho="2" nome="ESTADONOTAFISCAL"/>
+
+		<!-- Label: cep -->
+		<atributo formato="CONST" inicio="203" tamanho="5" nome="LABELCEP" valor="CEP"/>
+
+		<!-- CEP -->
+		<atributo formato="ALFA" inicio="208" tamanho="9" nome="CEPNOTAFISCAL"/>
+
+		<!-- Label: cpf/cnpj -->
+		<atributo formato="CONST" inicio="217" tamanho="10" nome="LABELCPFCNPJ" valor="CPF/CNPJ"/>
+
+		<!-- CPF/CNPJ -->
+		<atributo formato="ALFA" inicio="227" tamanho="20" nome="CPFCNPJNOTAFISCAL"/>
+
+		<!-- Label: Cliente -->
+		<atributo formato="CONST" inicio="247" tamanho="10" nome="LABELCLIENTE" valor="Cliente"/>
+
+		<!-- Nome do cliente -->
+		<atributo formato="ALFA" inicio="257" tamanho="40" nome="NOMECLIENTENOTAFISCAL"/>
+
+		<!-- Label: Codigo -->
+		<atributo formato="CONST" inicio="297" tamanho="8" nome="LABELCODIGO" valor="Código"/>
+
+		<!-- Código do cliente NET -->
+		<atributo formato="ALFA" inicio="305" tamanho="20" nome="CODIGOCLIENTENET"/>
+
+		<!-- Label: Vencto -->
+		<atributo formato="CONST" inicio="325" tamanho="11" nome="LABELDATAVENCIMENTO" valor="Vencimento"/>
+
+		<!-- Data de Vencimento da fatura (DD/MM/AAAA)-->
+		<atributo formato="DATA" inicio="336" tamanho="10" nome="DATAVENCIMENTOBOLETO" obrigatorio="NAO"/>
+
+		<!-- Label: Ano/Mes de referencia -->
+		<atributo formato="CONST" inicio="346" tamanho="14" nome="LABELANOMESREFERENCIA" valor="Mês Referência"/>
+
+		<!-- Mês / Ano de referência -->
+		<atributo formato="MES_REF" inicio="360" tamanho="16" nome="MESANOREFERENCIA"/>
+
+		<!-- Label: emissao -->
+		<atributo formato="CONST" inicio="376" tamanho="10" nome="LABELDATAEMISSAO" valor="Emissão"/>
+
+		<!-- Data de emissão da nota fiscal (DD/MM/AAAA) -->
+		<atributo formato="DATA" inicio="386" tamanho="10" nome="DATAEMISSAONOTAFISCAL" obrigatorio="NAO"/>
+
+		<!-- Label: Numero da NF -->
+		<atributo formato="CONST" inicio="396" tamanho="10" nome="LABELNUMERONOTAFISCAL" valor="Número"/>
+
+		<!-- Número da nota fiscal -->
+		<atributo formato="NUMERO" inicio="406" tamanho="10" nome="NUMERONOTAFISCAL"/>
+
+		<!-- Label: CFOP -->
+		<atributo formato="CONST" inicio="416" tamanho="10" nome="LABELCFOP" valor="CFOP"/>
+
+		<!-- CFOP -->
+		<atributo formato="ALFA" inicio="426" tamanho="4" nome="CFOPNOTAFISCAL"/>
+
+		<!-- Label: I. E. -->
+		<atributo formato="CONST" inicio="430" tamanho="20" nome="LABELINSCRICAOESTADUAL" valor="Inscrição Estadual"/>
+
+		<!-- Inscrição Estadual (cliente) -->
+		<atributo formato="ALFA" inicio="450" tamanho="20" nome="INSCRICAOESTADUALNOTAFISCAL"/>
+
+		<!-- Label: Pag. N.F. -->
+		<atributo formato="CONST" inicio="470" tamanho="10" nome="LABELCONTROLEPAGINACAO" valor="PAG. N.F."/>
+
+		<!-- Controle de Paginacao da NF -->
+		<atributo formato="ALFA" inicio="480" tamanho="10" nome="CONTROLEPAGINACAO"/>
+
+		<!-- Código de formatação da linha
+
+                  Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+                -->
+		<atributo formato="CONST" inicio="490" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Dados do Assinante NET - Sem dados da NF -->
+	<linha tipo="13">
+		<!-- Tipo de registro igual a 13 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="13"/>
+
+		<!-- Label: Endereco -->
+		<atributo formato="CONST" inicio="3" tamanho="10" nome="LABELENDERECO" valor="Endereço"/>
+
+		<!-- Endereço (rua + número + complemento) -->
+		<atributo formato="ALFA" inicio="13" tamanho="80" nome="ENDERECONOTAFISCAL"/>
+
+		<!-- Label: Bairro -->
+		<atributo formato="CONST" inicio="93" tamanho="10" nome="LABELBAIRRO" valor="Bairro"/>
+
+		<!-- Bairro -->
+		<atributo formato="ALFA" inicio="103" tamanho="40" nome="BAIRRONOTAFISCAL"/>
+
+		<!-- Label: Cidade -->
+		<atributo formato="CONST" inicio="143" tamanho="10" nome="LABELCIDADE" valor="Cidade"/>
+
+		<!-- Cidade -->
+		<atributo formato="ALFA" inicio="153" tamanho="40" nome="CIDADENOTAFISCAL"/>
+
+		<!-- Label: Estado -->
+		<atributo formato="CONST" inicio="193" tamanho="10" nome="LABELESTADO" valor="Estado"/>
+
+		<!-- Estado -->
+		<atributo formato="ALFA" inicio="203" tamanho="2" nome="ESTADONOTAFISCAL"/>
+
+		<!-- Label: cep -->
+		<atributo formato="CONST" inicio="205" tamanho="5" nome="LABELCEP" valor="CEP"/>
+
+		<!-- CEP -->
+		<atributo formato="ALFA" inicio="210" tamanho="9" nome="CEPNOTAFISCAL"/>
+
+		<!-- Label: cpf/cnpj -->
+		<atributo formato="CONST" inicio="219" tamanho="10" nome="LABELCPFCNPJ" valor="CPF/CNPJ"/>
+
+		<!-- CPF/CNPJ -->
+		<atributo formato="ALFA" inicio="229" tamanho="30" nome="CPFCNPJNOTAFISCAL"/>
+
+		<!-- Label: Cliente -->
+		<atributo formato="CONST" inicio="259" tamanho="10" nome="LABELCLIENTE" valor="Cliente"/>
+
+		<!-- Nome do cliente -->
+		<atributo formato="ALFA" inicio="269" tamanho="40" nome="NOMECLIENTENOTAFISCAL"/>
+
+		<!-- Label: Codigo -->
+		<atributo formato="CONST" inicio="309" tamanho="10" nome="LABELCODIGO" valor="Código"/>
+
+		<!-- Código do cliente NET -->
+		<atributo formato="ALFA" inicio="319" tamanho="19" nome="CODIGOCLIENTENET"/>
+
+		<!-- Label: Vencto -->
+		<atributo formato="CONST" inicio="338" tamanho="10" nome="LABELDATAVENCIMENTO" valor="Vencimento"/>
+
+		<!-- Data de Vencimento da fatura (DD/MM/AAAA)-->
+		<atributo formato="DATA" inicio="348" tamanho="10" nome="DATAVENCIMENTOBOLETO"/>
+
+		<!-- Label: Ano/Mes de referencia -->
+		<atributo formato="CONST" inicio="358" tamanho="15" nome="LABELANOMESREFERENCIA" valor="Mês Referência"/>
+
+		<!-- Mês / Ano de referência -->
+		<atributo formato="MES_REF" inicio="373" tamanho="16" nome="MESANOREFERENCIA"/>
+
+		<!-- Código de formatação da linha
+
+                  Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+                -->
+		<atributo formato="CONST" inicio="389" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Cabeçalho do Detalhamento (Label) -->
+	<linha tipo="14">
+		<!-- Tipo de registro igual a 14 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="14"/>
+
+		<!-- Texto parametrizado (label) - Descrição dos Serviço -->
+		<atributo formato="CONST" inicio="3" tamanho="120" nome="LABELDESCRICAOSERVICO" valor="Discriminação do Serviço"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Cabeçalho do Agrupamento de Itens -->
+	<linha tipo="15">
+		<!-- Tipo de registro igual a 15 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="15"/>
+
+		<!-- Nome do agrupamento (ex.: TV por Assinatura, Pay-per-view, etc) -->
+		<atributo formato="ALFA" inicio="3" tamanho="160" nome="NOMEAGRUPAMENTO"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="163" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Item do Detalhamento -->
+	<linha tipo="16">
+		<!-- Tipo de registro igual a 16 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="16"/>
+
+		<!-- Descrição -->
+		<atributo formato="ALFA" inicio="3" tamanho="109" nome="DESCRICAO"/>
+
+		<!--  Espaço em branco -->
+		<atributo formato="FILLER" inicio="112" tamanho="1" nome="FILLER"/>
+
+		<!-- Valor ISS -->
+		<atributo formato="VALOR" inicio="113" tamanho="10" nome="PIS" decimais="2"/>
+		
+		<!-- Valor ICMS -->
+		<atributo formato="VALOR" inicio="123" tamanho="10" nome="COFINS" decimais="2"/>
+		
+		<!-- Valor PIS -->
+		<atributo formato="VALOR" inicio="133" tamanho="10" nome="ISS" decimais="2"/>
+		
+		<!-- Valor COFINS -->
+		<atributo formato="VALOR" inicio="143" tamanho="10" nome="ICMS" decimais="2"/>
+
+		<!-- Valor bruto do item -->
+		<atributo formato="VALOR" inicio="153" tamanho="10" nome="VALORBRUTOITEM" decimais="2"/>
+
+		<!-- Código de formatação da linha
+
+                  Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+                -->
+		<atributo formato="CONST" inicio="163" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Rodapé do Agrupamento -->
+	<linha tipo="17">
+		<!-- Tipo de registro igual a 17 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="17"/>
+
+		<!-- Texto parametrizado (label) - Subtotal -->
+		<atributo formato="CONST" inicio="3" tamanho="20" nome="LABELSUBTOTAL" valor="SUB TOTAL"/>
+
+		<!-- Nome do agrupamento (ex.: TV por Assinatura, Pay-per-view, etc) -->
+		<atributo formato="ALFA" inicio="23" tamanho="125" nome="NOMEAGRUPAMENTO"/>
+
+		<!-- Valor da soma dos itens do agrupamento -->
+		<atributo formato="VALOR" inicio="148" tamanho="15" nome="VALORSOMAITENSAGRUPAMENTO" decimais="2"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="163" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Total da Nota Fiscal NET -->
+	<linha tipo="18">
+		<!-- Tipo de registro igual a 18 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="18"/>
+
+		<!-- Texto parametrizado (label) - Total da Nota Fiscal -->
+		<atributo formato="CONST" inicio="3" tamanho="145" nome="LABELTOTALNOTAFISCAL" valor="TOTAL DA NOTA FISCAL"/>
+
+		<!-- Valor total da nota fiscal -->
+		<atributo formato="VALOR" inicio="148" tamanho="15" nome="VALORTOTALNOTAFISCAL" decimais="2" />
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="163" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Tributos NET -->
+	<linha tipo="19">
+		<!-- Tipo de registro igual a 19 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="19"/>
+
+		<!-- Sigla do tributo -->
+		<atributo formato="ALFA" inicio="3" tamanho="15" nome="SIGLATRIBUTO" valor="Total da Nota Fiscal"/>
+
+		<!-- Texto parametrizado (label) - Base de Cálculo -->
+		<atributo formato="CONST" inicio="18" tamanho="20" nome="LABELBASECALCULO" valor="Base de Cálculo"/>
+
+		<!-- Base de cáculo -->
+		<atributo formato="VALOR" inicio="38" tamanho="15" nome="BASECALCULO"  decimais="2"/>
+
+		<!-- Texto parametrizado (label) - Alíquota -->
+		<atributo formato="CONST" inicio="53" tamanho="20" nome="LABELALIQUOTA" valor="Alíquota"/>
+
+		<!-- Alíquota -->
+		<atributo formato="ALIQUOTA" inicio="73" tamanho="15" nome="VALORALIQUOTA" decimais="2"/>
+
+		<!-- Texto parametrizado (label) - Valor -->
+		<atributo formato="CONST" inicio="88" tamanho="20" nome="LABELVALOR" valor="Valor"/>
+
+		<!--Valor do tributo -->
+		<atributo formato="VALOR" inicio="108" tamanho="15" nome="VALORTRIBUTO" decimais="2"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01	"/>
+	</linha>
+
+	<!-- Texto: "Reservado ao Fisco" -->
+	<linha tipo="20">
+		<!-- Tipo de registro igual a 20 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="20"/>
+
+		<!-- Texto parametrizado (label) - Texto Centralizado (ex.: "Reservado ao Fisco")  -->
+		<atributo formato="CONST" inicio="3" tamanho="120" nome="LABELTEXTOCENTRALIZADO" valor="Reservado ao Fisco"/>
+
+		<!-- Código de formatação da linha 	
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Conteúdo do reservado ao fisco -->
+	<linha tipo="21">
+		<!-- Tipo de registro igual a 21 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="21"/>
+
+		<!-- Código reservado ao fisco - hash code -->
+		<atributo formato="ALFA" inicio="3" tamanho="120" nome="HASHCODE"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+	
+	<!-- Mensagens de rodapé NF NET -->
+	<linha tipo="22">
+		<!-- Tipo de registro igual a 22 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="22"/>
+
+		<!-- Mensagem Totais Impostos-->
+		<atributo formato="ALFA" inicio="3" tamanho="160" nome="TOTAISIMPOSTOSNET"  />	
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="163" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+	
+	<!-- Dados das mensagens da nota fiscal -->
+	<linha tipo="24">
+		<!-- Tipo de registro igual a 24 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="24"/>
+
+		<!-- Código da Operadora-->
+		<atributo formato="ALFA" inicio="3" tamanho="7" nome="CODIGOOPERADORAMENSAGEMNOTAFISCAL"  />	
+
+		<!-- Prefixo da mensagem -->
+		<atributo formato="ALFA" inicio="8" tamanho="5" nome="PREFIXOMENSAGEMNOTAFISCAL"  />
+		
+		<!-- Codigo da setorizacao da mensagem -->
+		<atributo formato="ALFA" inicio="13" tamanho="5" nome="SETORIZACAOMENSAGEMNOTAFISCAL"  />
+		
+		<!-- Mensagem nota fiscal-->
+		<atributo formato="ALFA" inicio="18" tamanho="250" nome="MENSAGEMNOTAFISCAL"  />	
+						
+	</linha>
+	
+	<!-- Dados do Emissor da nota fiscal -->
+	<linha tipo="25">
+		<!-- Tipo de registro igual a 25 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="25"/>
+
+		<!-- Nome do emissor fiscal-->
+		<atributo formato="ALFA" inicio="3" tamanho="40" nome="NOMEEMISSORFISCAL"  />	
+
+		<!-- ENDERECO do emissor fiscal-->
+		<atributo formato="ALFA" inicio="43" tamanho="40" nome="ENDERECOEMISSORFISCAL"  />
+		
+		<!-- BAIRRO do emissor fiscal-->
+		<atributo formato="ALFA" inicio="83" tamanho="40" nome="BAIRROEMISSORFISCAL"  />
+		
+		<!-- Cidade do emissor fiscal-->
+		<atributo formato="ALFA" inicio="123" tamanho="40" nome="CIDADEEMISSORFISCAL"  />	
+			
+		<!-- Estado do emissor fiscal-->
+		<atributo formato="ALFA" inicio="163" tamanho="2" nome="ESTADOEMISSORFISCAL"  />	
+
+		<!-- Cep do emissor fiscal-->
+		<atributo formato="ALFA" inicio="165" tamanho="9" nome="CEPEMISSORFISCAL"  />	
+			
+		<!-- CNPJ do emissor fiscal-->
+		<atributo formato="ALFA" inicio="174" tamanho="30" nome="CNPJEMISSORFISCAL"  />	
+
+		<!-- Inscricao Estadual do emissor fiscal-->
+		<atributo formato="ALFA" inicio="204" tamanho="30" nome="IEEMISSORFISCAL"  />
+		
+		<!-- Inscricao Municipal do emissor fiscal-->
+		<atributo formato="ALFA" inicio="234" tamanho="30" nome="IMEMISSORFISCAL"  />	
+			
+	</linha>
+
+	<!-- Fim do Titulo / NF NET (Trailler) -->
+	<linha tipo="29">
+		<!-- Tipo de registro igual a 29 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="29"/>
+	</linha>
+
+<!-- Início da Nota Fiscal / Empresa Parceira (Header da nota Fiscal) -->
+	<linha tipo="30">
+		<!-- Tipo de registro igual a 30 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="30"/>
+	</linha>
+
+<!-- Parceiro -->
+	<linha tipo="38">
+		<!-- Tipo de registro igual a 38 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="COD-REGISTRO" valor="38"/>
+
+		<!-- Texto parametrizado (label) -->
+		<atributo formato="CONST" inicio="3" tamanho="40" nome="DESCRICAOTITULO" valor="Nota Fiscal de: "/>
+
+		<!-- Nome da empresa parceira -->
+		<atributo formato="ALFA" inicio="43" tamanho="60" nome="NOMEEMPRESAPARCEIRA" />
+
+		<!-- Endereço (Rua + Número) -->
+		<atributo formato="ALFA" inicio="103" tamanho="40" nome="ENDERECO" obrigatorio="NAO"/>
+
+		<!-- Bairro -->
+		<atributo formato="ALFA" inicio="143" tamanho="40" nome="BAIRRO" obrigatorio="NAO"/>
+
+		<!-- Cidade -->
+		<atributo formato="ALFA" inicio="183" tamanho="40" nome="CIDADE" obrigatorio="NAO"/>
+
+		<!-- Estado -->
+		<atributo formato="ALFA" inicio="223" tamanho="3" nome="ESTADO" obrigatorio="NAO"/>
+
+		<!-- CEP -->
+		<atributo formato="ALFA" inicio="225" tamanho="9" nome="CEP" obrigatorio="NAO"/>
+		
+		<!-- CNPJ -->
+		<atributo formato="ALFA" inicio="234" tamanho="30" nome="CNPJ" obrigatorio="NAO"/>
+
+		<!-- Inscrição Estadual -->
+		<atributo formato="ALFA" inicio="264" tamanho="30" nome="INSCRICAOESTADUAL" obrigatorio="NAO"/>		
+
+		<!-- Inscrição Municipal -->
+		<atributo formato="ALFA" inicio="294" tamanho="30" nome="INSCRICAOMUNICIPAL" obrigatorio="NAO"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="324" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+<!-- Dados Assinante EBT -->
+	<linha tipo="31">
+		<!-- Tipo de registro igual a 31 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="CODREGISTRO" valor="31"/>
+
+		<!-- Nome do cliente -->
+		<atributo formato="ALFA" inicio="3" tamanho="40" nome="NNOMECLIENTE"/>
+
+		<!-- Código do Cliente EBT -->
+		<atributo formato="ALFA" inicio="43" tamanho="20" nome="CCDIGOCLIENTEEBT" obrigatorio="NAO"/>
+
+		<!-- Número da fatura -->
+		<atributo formato="ALFA" inicio="63" tamanho="20" nome="NUMEROFATURA"/>
+
+		<!-- Endereço -->
+		<atributo formato="ALFA" inicio="83" tamanho="80" nome="ENDERECO"/>
+
+		<!-- Bairro -->
+		<atributo formato="ALFA" inicio="163" tamanho="40" nome="BAIRRO"/>
+
+		<!-- Cidade -->
+		<atributo formato="ALFA" inicio="203" tamanho="40" nome="CIDADE"/>
+
+		<!-- Estado -->
+		<atributo formato="ALFA" inicio="243" tamanho="2" nome="ESTADO"/>
+
+		<!-- CEP -->
+		<atributo formato="ALFA" inicio="245" tamanho="9" nome="CEP"/>
+		
+		<!-- CNPJ -->
+		<atributo formato="ALFA" inicio="254" tamanho="30" nome="CNPJ"/>
+
+		<!-- Inscrição Estadual -->
+		<atributo formato="ALFA" inicio="284" tamanho="30" nome="INSCRICAOESTADUAL"/>		
+
+		<!-- Mensagem NF -->
+		<atributo formato="ALFA" inicio="314" tamanho="60" nome="MENSAGEM_NF"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="374" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+<!-- Cabeçalho do Nota Fiscal EBT -->
+	<linha tipo="32">
+		<!-- Tipo de registro igual a 32 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="COD-REGISTRO" valor="32"/>
+
+		<!-- Série da nota fiscal -->
+		<atributo formato="ALFA" inicio="3" tamanho="10" nome="SERIENOTAFISCAL"/>
+
+		<!-- Número da nota fiscal -->
+		<atributo formato="ALFA" inicio="13" tamanho="10" nome="NUMERONOTAFISCAL"/>
+
+		<!-- Data de emissão da nota fiscal (DD/MM/AAAA) -->
+		<atributo formato="DATA" inicio="23" tamanho="10" nome="DATAEMISSAONOTAFISCAL"/>
+
+		<!-- Unidade Fiscal (Estado) -->
+		<atributo formato="ALFA" inicio="33" tamanho="2" nome="UNIDADEFISCAL"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="35" tamanho="2" nome="FORMATACAO" valor="01	"/>
+	</linha>
+
+<!-- Item Nota Fiscal EBT -->
+	<linha tipo="33">
+		<!-- Tipo de registro igual a 33 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="COD-REGISTRO" valor="33"/>
+
+		<!-- Descrição + "/" + telefone -->
+		<atributo formato="ALFA" inicio="3" tamanho="70" nome="DESCRICAOTELEFONE"/>
+
+		<!-- PIS -->
+		<atributo formato="VALOR" inicio="73" tamanho="10" nome="EBT_PIS" decimais="2"/>
+		
+		<!-- COFINS -->
+		<atributo formato="VALOR" inicio="83" tamanho="10" nome="EBT_COFINS" decimais="2"/>
+		
+		<!-- Aliquota -->
+		<atributo formato="VALOR" inicio="93" tamanho="10" nome="ALIQUOTA" decimais="2"/>
+		
+		<!-- ICMS -->
+		<atributo formato="VALOR" inicio="103" tamanho="10" nome="EBT_ICMS" decimais="2"/>
+
+		<!-- Valor -->
+		<atributo formato="VALOR" inicio="113" tamanho="10" nome="VALOR" decimais="2"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01	"/>
+	</linha>
+
+<!-- Tributos EBT -->
+	<linha tipo="34">
+		<!-- Tipo de registro igual a 35 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="COD-REGISTRO" valor="34"/>
+
+		<!-- Sigla do tributo -->
+		<atributo formato="ALFA" inicio="3" tamanho="15" nome="SGTRIBUTO" />
+
+		<!-- Valor Total -->
+		<atributo formato="VALOR" inicio="18" tamanho="20" nome="VALORTOTAL" decimais="2"/>
+
+		<!-- Base de calculo -->
+		<atributo formato="VALOR" inicio="38" tamanho="15" nome="BASECALCULO" decimais="2"/>
+
+		<!-- Alíquota -->	
+		<atributo formato="ALFA" inicio="53" tamanho="20" nome="ALIQUOTA"  />
+
+        <!-- Valor do ICMS-->
+		<atributo formato="VALOR" inicio="73" tamanho="15" nome="VALORICMS" decimais="2"/>
+
+        <!-- Valor do Isento -->
+		<atributo formato="VALOR" inicio="88" tamanho="20" nome="VALORISENTO" decimais="2"/>
+
+        <!-- Valor Outros -->
+		<atributo formato="VALOR" inicio="108" tamanho="15" nome="VALOROUTROS" decimais="2"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+
+<!-- Tributos EBT (Linha de total) -->
+	<linha tipo="35">
+		<!-- Tipo de registro igual a 35 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="COD-REGISTRO" valor="35"/>
+
+		<!-- Sigla do tributo -->
+		<atributo formato="ALFA" inicio="3" tamanho="15" nome="SGTRIBUTO" />
+
+		<!-- Valor Total -->
+		<atributo formato="VALOR" inicio="18" tamanho="20" nome="VALORTOTAL" decimais="2"/>
+
+		<!-- Base de calculo -->
+		<atributo formato="VALOR" inicio="38" tamanho="15" nome="BASECALCULO" decimais="2"/>
+
+		<!-- Alíquota -->
+		<atributo formato="ALFA" inicio="53" tamanho="20" nome="ALIQUOTA"  />
+
+        <!-- Valor do ICMS-->
+		<atributo formato="VALOR" inicio="73" tamanho="15" nome="VALORICMS" decimais="2"/>
+
+        <!-- Valor do Isento -->
+		<atributo formato="VALOR" inicio="88" tamanho="20" nome="VALORISENTO" decimais="2"/>
+
+        <!-- Valor Outros -->
+		<atributo formato="VALOR" inicio="108" tamanho="15" nome="VALOROUTROS" decimais="2"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+<!-- Reservado ao Fisco -->
+	<linha tipo="36">
+		<!-- Tipo de registro igual a 36 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="COD-REGISTRO" valor="36"/>
+
+		<!-- Texto parametrizado (label) -->
+		<atributo formato="ALFA" inicio="3" tamanho="120" nome="LABELFISCO" valor=" "/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01	"/>
+	</linha>
+
+<!-- Conteúdo do Reservado ao Fisco -->
+	<linha tipo="37">
+		<!-- Tipo de registro igual a 37 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="COD-REGISTRO" valor="37"/>
+
+		<!-- Código reservado ao fisco -->
+		<atributo formato="ALFA" inicio="3" tamanho="120" nome="HASHCODE" valor=""/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01	"/>
+	</linha>
+	
+	<linha tipo="23">
+		<!-- Tipo de registro igual a 23 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="23" />
+
+		<!-- Complemento Campos Importantes - Mensagem Anatel -->
+		<atributo formato="ALFA" inicio="3" tamanho="2" nome="ORIGEMMENSAGEM"/>
+		<atributo formato="ALFA" inicio="5" tamanho="250" nome="MENSAGEM"/>
+		<atributo formato="CONST" inicio="255" tamanho="10" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Fim do Titulo / EBT (Trailler) -->
+	<linha tipo="39">
+		<!-- Tipo de registro igual a 29 --> 
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="39"/>
+	</linha>
+
+	<!-- Cabeçalho do Demonstrativo Financeiro -->
+	<linha tipo="40">
+		<!-- Tipo de registro igual a 40 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="40"/>
+
+		<!-- Texto parametrizado (label) - Demonstrativo Financeiro -->
+		<atributo formato="CONST" inicio="3" tamanho="120" nome="LABELDEMONSTRATIVOFINANCEIRO" valor="Demonstrativo Financeiro"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01"/> 
+	</linha>
+
+	<!-- Item do Demonstrativo Financeiro -->
+	<linha tipo="41">
+		<!-- Tipo de registro igual a 41 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="41"/>
+
+		<!-- Descrição do item do demonstrativo financeiro -->
+		<atributo formato="ALFA" inicio="3" tamanho="105" nome="DESCRICAOITEMDEMONST_FINANC"/>
+
+		<!-- Valor do item de demonstrativo financeiro -->
+		<atributo formato="VALOR" inicio="108" tamanho="15" nome="VALORITEMDEMONST_FINANC" decimais="2" />
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Total do Demonstrativo Financeiro -->
+	<linha tipo="42">
+		<!-- Tipo de registro igual a 42 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="42"/>
+
+		<!-- Texto parametrizado (label) - Total a pagar -->
+		<atributo formato="CONST" inicio="3" tamanho="105" nome="LABELTOTALAPAGAR" valor="TOTAL A PAGAR"/>
+
+		<!-- Valor total do demonstrativo financeiro -->
+		<atributo formato="VALOR" inicio="108" tamanho="15" nome="VALORCOBRADO" decimais="2"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Total do Demonstrativo Financeiro -->
+	<linha tipo="421">
+		<!-- Tipo de registro igual a 42 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="42"/>
+
+		<!-- Texto parametrizado (label) - Total a pagar -->
+		<atributo formato="CONST" inicio="3" tamanho="105" nome="LABELTOTALAPAGAR" valor="TOTAL"/>
+
+		<!-- Valor total do demonstrativo financeiro -->
+		<atributo formato="VALOR" inicio="108" tamanho="15" nome="VALORCOBRADO" decimais="2"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="05"/>
+	</linha>
+
+	<!-- Ficha de Arrecadação -->
+	<linha tipo="43">
+		<!-- Tipo de registro igual a 43 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="43"/>
+
+		<!-- Código de barra -->
+		<atributo formato="ALFA" inicio="3" tamanho="50" nome="CODIGODEBARRAS" obrigatorio="NAO"/>
+
+		<!-- Linha digitável -->
+		<atributo formato="ALFA" inicio="53" tamanho="60" nome="LINHADIGITAVEL" obrigatorio="NAO"/>
+
+		<!-- label: Nome do cliente -->
+		<atributo formato="CONST" inicio="113" tamanho="10" nome="LABELCLIENTE" valor="Cliente"/>
+
+		<!-- Nome do cliente -->
+		<atributo formato="ALFA" inicio="123" tamanho="40" nome="NOMECLIENTECOBRANCA"/>
+
+		<!-- label: -->
+		<atributo formato="CONST" inicio="163" tamanho="20" nome="LABELANOMESREFERENCIA" valor="Mês Referência" />
+
+		<!-- Mês / Ano de competência -->
+		<atributo formato="MES_REF" inicio="183" tamanho="16" nome="MESANOREFERENCIA"/>
+
+		<!-- label: -->
+		<atributo formato="CONST" inicio="199" tamanho="20" nome="LABELDATAVENCIMENTO" valor="Vencimento" />
+
+		<!-- Data de Vencimento -->
+		<atributo formato="DATA" inicio="219" tamanho="10" nome="DATAVENCIMENTOBOLETO" obrigatorio="NAO"/>
+
+		<!-- label: -->
+		<atributo formato="CONST" inicio="229" tamanho="10" nome="LABELVALORCOBRADO" valor="Valor" />
+
+		<!-- Total a pagar -->
+		<atributo formato="VALOR" inicio="239" tamanho="15" nome="VALORCOBRADO" decimais="2" />
+		
+		<!-- Label: Codigo -->
+		<atributo formato="CONST" inicio="254" tamanho="25" nome="LABELCODIGO" valor="Identificação para Débito"/>
+
+		<!-- Código do cliente NET -->
+		<atributo formato="ALFA" inicio="279" tamanho="20" nome="CODIGOCLIENTENET"/>
+		
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="299" tamanho="2" nome="FORMATACAO" valor="01"/>
+		
+		<!-- QRCODE PIX -->
+		<atributo formato="ALFA" inicio="301" tamanho="500" nome="PIXHASHCODE" obrigatorio="NAO"/>
+		
+	</linha>
+	
+	<!-- Serviço do Período -->
+	<linha tipo="44">
+		<!-- Tipo de registro igual a 44 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="41"/>
+
+		<!-- Descrição do item do demonstrativo financeiro -->
+		<atributo formato="ALFA" inicio="3" tamanho="105" nome="DESCRICAOITEMDEMONST_FINANC"/>
+
+		<!-- Valor do item de demonstrativo financeiro -->
+		<atributo formato="VALOR" inicio="108" tamanho="15" nome="VALORITEMDEMONST_FINANC" decimais="2"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+	
+	<!-- Cabeçalho do agrupamento de Itens do Demonstrativo Financeiro -->
+	<linha tipo="45">
+		<!-- Tipo de registro igual a 45 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="41"/>
+
+		<!-- Descrição do item do demonstrativo financeiro -->
+		<atributo formato="ALFA" inicio="3" tamanho="105" nome="DESCRICAOITEMDEMONST_FINANC"/>
+
+		<!-- Valor do item de demonstrativo financeiro -->
+		<atributo formato="VALOR" inicio="108" tamanho="15" nome="VALORITEMDEMONST_FINANC" decimais="2" />
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="02"/>
+	</linha>
+
+	<!-- Cabeçalho do agrupamento de SUB Itens do Demonstrativo Financeiro -->
+	<linha tipo="451">
+		<!-- Tipo de registro igual a 451 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="41"/>
+
+		<!-- Descrição do item do demonstrativo financeiro -->
+		<atributo formato="ALFA" inicio="3" tamanho="105" nome="DESCRICAOITEMDEMONST_FINANC"/>
+
+		<!-- Valor do item de demonstrativo financeiro -->
+		<atributo formato="VALOR" inicio="108" tamanho="15" nome="VALORITEMDEMONST_FINANC" decimais="2" />
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="03"/>
+	</linha>
+
+	
+	<!-- Rodapé do agrupamento de Itens do Demonstrativo Financeiro -->
+	<linha tipo="46">
+		<!-- Tipo de registro igual a 46 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="41"/>
+
+		<!-- Descrição do item do demonstrativo financeiro -->
+		<atributo formato="ALFA" inicio="3" tamanho="105" nome="DESCRICAOITEMDEMONST_FINANC"/>
+
+		<!-- Valor do item de demonstrativo financeiro -->
+		<atributo formato="VALOR" inicio="108" tamanho="15" nome="VALORITEMDEMONST_FINANC" decimais="2"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="05"/>
+	</linha>
+	
+		<!-- Rodapé(sub-total) do agrupamento de SUB Itens do Demonstrativo Financeiro -->
+	<linha tipo="461">
+		<!-- Tipo de registro igual a 46 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="41"/>
+
+		<!-- Descrição do item do demonstrativo financeiro -->
+		<atributo formato="ALFA" inicio="3" tamanho="105" nome="DESCRICAOITEMDEMONST_FINANC"/>
+
+		<!-- Valor do item de demonstrativo financeiro -->
+		<atributo formato="VALOR" inicio="108" tamanho="15" nome="VALORITEMDEMONST_FINANC" decimais="2"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="04"/>
+	</linha>
+
+	<!-- Inicio do produto Origem - EBT -->
+	<linha tipo="50">
+		<!-- Tipo de registro igual a 50 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="50"/>
+	</linha>
+
+	<!-- Cabeçalho de todas as páginas EBT -->
+	<linha tipo="51">
+		<!-- Tipo de registro igual a 51 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="51"/>
+
+		<!-- Nome do Cliente -->
+		<atributo formato="ALFA" inicio="3" tamanho="40" nome="NOMECLIENTE"/>
+
+		<!-- Código do Cliente EBT -->
+		<atributo formato="ALFA" inicio="43" tamanho="20" nome="CODIGOCLIENTEEBT"/>
+
+		<!-- Número da fatura -->
+		<atributo formato="ALFA" inicio="63" tamanho="20" nome="NUMEROFATURA"/>
+
+		<!-- Nome do Serviço -->
+		<atributo formato="ALFA" inicio="93" tamanho="20" nome="NOMESERVICO"/>
+
+		<!-- Número do telefone -->
+		<atributo formato="ALFA" inicio="123" tamanho="20" nome="NUMEROTELEFONE"/>
+
+		<!-- Controle de Paginação -->
+		<atributo formato="ALFA" inicio="143" tamanho="10" nome="CONTROLEPAGINACAO"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="153" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+	
+	<!-- Cabeçalho do Agrupamento dos itens EBT -->
+	<linha tipo="61">
+		<!-- Tipo de registro igual a 52 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="52"/>
+	</linha>
+	
+	<!-- Minha Net -->
+	<linha tipo="65">
+		<!-- Tipo de registro igual a 65 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="65"/>
+		<atributo formato="ALFA" inicio="3" tamanho="120" nome="MINHANET"/>
+		<atributo formato="ALFA" inicio="123" tamanho="2" nome="TIPOGRUPO"/>
+	</linha>
+
+	<!--  Quebra de coluna demonstrativo financeiro -->	
+	<linha tipo="66">
+		<!-- Tipo de registro igual a 66 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="66"/>
+	</linha>
+	
+	<!-- Cabeçalho do Agrupamento dos itens EBT -->
+	<linha tipo="52">
+		<!-- Tipo de registro igual a 52 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="53"/>
+
+		<!-- Nome do agrupamento -->
+		<atributo formato="ALFA" inicio="3" tamanho="120" nome="NOMEAGRUPAMENTO" obrigatorio="NAO" />
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="ALFA" inicio="123" tamanho="2" nome="FORMATACAO" />
+	</linha>
+	
+	<linha tipo="62">
+		<!-- Tipo de registro igual a 06 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="06"/>
+	</linha>
+	
+
+	<!-- Item do Detalhamento EBT -->
+	<linha tipo="53">
+		<!-- Tipo de registro igual a 53 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="53"/>
+
+		<!-- Data início do periodo de cobrança -->
+		<atributo formato="ALFA" inicio="3" tamanho="10" nome="DATAINICIOCOBRANCA" obrigatorio="NAO"/>
+
+		<!-- Espaço em branco -->
+		<atributo formato="ALFA" inicio="13" tamanho="5" nome="ESPACOEMBRANCO1" />
+
+		<!-- Número de telefone chamado -->
+		<atributo formato="ALFA" inicio="18" tamanho="20" nome="NUMEROTELEFONE" obrigatorio="NAO"/>
+
+		<!-- Espaço em branco -->
+		<atributo formato="CONST" inicio="38" tamanho="1" nome="ESPACOEMBRANCO2" valor=" "/>
+
+		<!-- Localidade Origem -->
+		<atributo formato="ALFA" inicio="39" tamanho="35" nome="LOCALIDADEDESTINO" obrigatorio="NAO"/>
+
+		<!-- Espaço em branco -->
+		<atributo formato="CONST" inicio="74" tamanho="2" nome="ESPACOEMBRANCO3" valor=" "/>
+
+		<!-- Hora início -->
+		<atributo formato="ALFA" inicio="76" tamanho="9" nome="HORAINICIO" obrigatorio="NAO"/>
+
+		<!-- Espaço em branco -->
+		<atributo formato="ALFA" inicio="85" tamanho="5" nome="ESPACOEMBRANCO4" />
+
+		<!-- Duracao -->
+		<atributo formato="ALFA" inicio="90" tamanho="10" nome="DURACAO" obrigatorio="NAO"	/>
+
+		<!-- Espaço em branco -->
+		<atributo formato="CONST" inicio="100" tamanho="6" nome="ESPACOEMBRANCO5" valor=" "/>
+
+		<!-- Valor -->
+		<atributo formato="ALFA" inicio="106" tamanho="17" nome="ITEMDETALHAMENTOVALOR"  obrigatorio="NAO" />
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+			<atributo formato="CONST" inicio="123" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+
+	<!-- Fim do produto / Origem EBT -->
+	<linha tipo="59">
+		<!-- Tipo de registro igual a 59 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="59"/>  	
+	</linha>
+	
+	<!-- Rodapé do Agrupamento -->
+	<linha tipo="54">
+		<!-- Tipo de registro igual a 54 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="54"/>
+	</linha>	
+	
+	<!-- Rodapé do Agrupamento -->
+	<linha tipo="55">
+		<!-- Tipo de registro igual a 55 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="55"/>
+		
+		<!-- Descricao do plano de servico -->
+		<atributo formato="ALFA" inicio="3" tamanho="150" nome="PLANOSERVICO" obrigatorio="NAO"/>
+	</linha>	
+	
+	<!-- Rodapé do Agrupamento -->
+	<linha tipo="60">
+		<!-- Tipo de registro igual a 38 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="COD-REGISTRO" valor="60"/>
+
+		<!-- Texto parametrizado (label) -->
+		<atributo formato="CONST" inicio="3" tamanho="40" nome="DESCRICAOTITULO" valor=" "/>
+
+		<!-- Nome da empresa parceira -->
+		<atributo formato="CONST" inicio="43" tamanho="60" nome="NOMEEMPRESAPARCEIRA" valor=" "/>
+
+		<!-- Endereço (Rua + Número) -->
+		<atributo formato="ALFA" inicio="103" tamanho="40" nome="ENDERECO" obrigatorio="NAO"/>
+
+		<!-- Bairro -->
+		<atributo formato="ALFA" inicio="143" tamanho="40" nome="BAIRRO" obrigatorio="NAO"/>
+
+		<!-- Cidade -->
+		<atributo formato="ALFA" inicio="183" tamanho="40" nome="CIDADE" obrigatorio="NAO"/>
+
+		<!-- Estado -->
+		<atributo formato="ALFA" inicio="223" tamanho="3" nome="ESTADO" obrigatorio="NAO"/>
+
+		<!-- CEP -->
+		<atributo formato="ALFA" inicio="225" tamanho="9" nome="CEP" obrigatorio="NAO"/>
+		
+		<!-- CNPJ -->
+		<atributo formato="ALFA" inicio="234" tamanho="30" nome="CNPJ" obrigatorio="NAO"/>
+
+		<!-- Inscrição Estadual -->
+		<atributo formato="ALFA" inicio="264" tamanho="30" nome="INSCRICAOESTADUAL" obrigatorio="NAO"/>		
+
+		<!-- Inscrição Municipal -->
+		<atributo formato="ALFA" inicio="294" tamanho="30" nome="INSCRICAOMUNICIPAL" obrigatorio="NAO"/>
+
+		<!-- Código de formatação da linha
+
+             Ex.: 00 = Fonte Arial, Normal, tamanho 12, Centralizado.
+                  01 = Fonte Arial, Negrito, tamanho 12, Justificado.
+        -->
+		<atributo formato="CONST" inicio="324" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+
+	<!-- Tipo de registro igual a 64 (Listar as 5 ultimas Ocorrências do assinante) -->
+	<linha tipo="64">
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="64"/>
+		<atributo formato="CONST" inicio="3" tamanho="25" nome="SIGLAOCORRENCIAS" valor="REGISTROS DE ATENDIMENTO:" />
+		<atributo formato="ALFA" inicio="29" tamanho="100" nome="ULTIMASOCORRENCIAS" obrigatorio="NAO"/>
+	</linha>
+	
+	<linha tipo="23">
+		<!-- Tipo de registro igual a 23 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="23" />
+
+		<!-- Complemento Campos Importantes - Mensagem Anatel -->
+		<atributo formato="ALFA" inicio="3" tamanho="2" nome="ORIGEMMENSAGEM"/>
+		<atributo formato="ALFA" inicio="5" tamanho="250" nome="MENSAGEM"/>
+		<atributo formato="CONST" inicio="255" tamanho="10" nome="FORMATACAO" valor="01"/>
+	</linha>
+	
+	<linha tipo="97">
+		<!-- Tipo de registro igual a 97 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="97" />
+		<!-- Mensagem Aliquota de Produto Streaming -->
+		<atributo formato="ALFA" inicio="3" tamanho="500" nome="MENSAGEM"/>
+		<atributo formato="CONST" inicio="503" tamanho="2" nome="FORMATACAO" valor="01"/>
+	</linha>
+	
+	<!-- Fim da Fatura -->
+	<linha tipo="98">
+		<!-- Tipo de registro igual a 98 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="98"/>
+	</linha>
+	
+	<!-- Início do Titulo / NF NET (Header)	-->
+	<linha tipo="63">
+		<!-- Tipo de registro igual a 10 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="06"/>
+	</linha>
+
+	<!-- Fim do Arquivo -->
+	<linha tipo="99">
+		<!-- Tipo de registro igual a 99 -->
+		<atributo formato="CONST" inicio="1" tamanho="2" nome="TIPOREGISTRO" valor="99"/>
+
+		<!-- Data fim de geração do arquivo (DD/MM/AAAA) -->
+		<atributo formato="DATA" inicio="3" tamanho="10" nome="DATAFIMGERACAOARQUIVO"/>
+
+		<!-- Hoje fim de geração do arquivo (HH:MM:SS) -->
+		<atributo formato="HORA" inicio="13" tamanho="8" nome="HORAFIMGERACAOARQUIVO"/>
+
+		<!-- Qtd de faturas emitidas -->
+		<atributo formato="NUMERO" inicio="21" tamanho="5" nome="QUANTIDADEFATURASEMITIDAS"/>
+
+		<!-- Valor de faturas emitidas -->
+		<atributo formato="VALOR" inicio="26" tamanho="15" nome="VALORTOTALFATURAS" decimais="2"/>
+
+		<!-- Valor de total de linhas -->
+		<atributo formato="NUMERO" inicio="41" tamanho="10" nome="VALORTOTALLINHASARQUIVO" decimais="2"/> 
+		
+	</linha>
+</leiauteGravacao>

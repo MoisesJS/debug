@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	
+	<bean id="PADRAO"
+		class="br.com.netservicos.framework.file.formater.StandardFormater"/>
+		
+	<bean id="PRINT"
+		class="br.com.netservicos.novosms.emissao.util.FormatadorPrintHouse"/>
+	
+</beans>

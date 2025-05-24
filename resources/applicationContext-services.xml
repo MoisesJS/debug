@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+								http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd"
+	default-lazy-init="true">
+
+
+
+	<!-- Start ArquivoPrintHouseService -->
+	<alias alias="ArquivoPrintHouseService" name="ArquivoPrintHouseEJB" />
+
+	<jee:remote-slsb id="ArquivoPrintHouseEJB"
+		jndi-name="netservicos/novosms/emissao/ejb/ArquivoPrintHouseEJB"
+		business-interface="br.com.netservicos.novosms.emissao.core.facade.ArquivoPrintHouseService"
+		cache-home="true" lookup-home-on-startup="false" resource-ref="false"
+		refresh-home-on-connect-failure="true" />
+	<!-- End ArquivoPrintHouseService -->
+
+	<!--  Start DeclaracaoAnualQuitacaoService  -->
+	<alias alias="DeclaracaoAnualQuitacaoService" name="DeclaracaoAnualQuitacaoEJB" />
+	<jee:remote-slsb id="DeclaracaoAnualQuitacaoEJB"
+		jndi-name="netservicos/ejb/emissao/DeclaracaoAnualQuitacaoServiceEJB"
+		business-interface="br.com.netservicos.novosms.emissao.core.facade.DeclaracaoAnualQuitacaoService"
+		cache-home="true" lookup-home-on-startup="false" resource-ref="false"
+		refresh-home-on-connect-failure="true" />
+	<!--  End DeclaracaoAnualQuitacaoService  -->
+
+
+	<!-- Start DisparoGeracaoArquivoMastersafService -->
+	<alias alias="DisparoGeracaoArquivoMastersafService" name="DisparoGeracaoArquivoMastersafEJB" />
+
+	<jee:remote-slsb id="DisparoGeracaoArquivoMastersafEJB"
+		jndi-name="netservicos/ejb/emissao/DisparoGeracaoArquivoMastersafEJB"
+		business-interface="br.com.netservicos.novosms.emissao.core.facade.DisparoGeracaoArquivoMastersafService"
+		cache-home="true" lookup-home-on-startup="false" resource-ref="false"
+		refresh-home-on-connect-failure="true" />
+	<!-- End DisparoGeracaoArquivoMastersafService-->
+
+	<!-- Start CobrancaNotaFiscalEJB  -->
+	<alias alias="CobrancaNotaFiscalService" name="CobrancaNotaFiscalEJB" />
+
+	<jee:remote-slsb id="CobrancaNotaFiscalEJB"
+		jndi-name="netservicos/ejb/emissao/CobrancaNotaFiscalEJB"
+		business-interface="br.com.netservicos.novosms.emissao.core.facade.CobrancaNotaFiscalService"
+		cache-home="true" lookup-home-on-startup="false" resource-ref="false"
+		refresh-home-on-connect-failure="true" />
+	<!-- End CobrancaNotaFiscalEJB -->
+
+	<!-- Start EmissaoService -->
+	<alias alias="EmissaoService" name="EmissaoServiceEJB" />
+
+	<jee:remote-slsb id="EmissaoServiceEJB"
+		jndi-name="netservicos/novosms/emissao/ejb/EmissaoServiceEJB"
+		business-interface="br.com.netservicos.novosms.emissao.core.facade.EmissaoService"
+		cache-home="true" lookup-home-on-startup="false" resource-ref="false"
+		refresh-home-on-connect-failure="true" />
+	<!-- End EmissaoService -->
+
+
+	<!-- Start TransporteArquivoService  -->
+	<alias alias="TransporteArquivoService" name="TransporteArquivoEJB" />
+
+	<jee:remote-slsb id="TransporteArquivoEJB"
+		jndi-name="netservicos/novosms/emissao/ejb/TransporteArquivoEJB"
+		business-interface="br.com.netservicos.novosms.emissao.core.facade.TransporteArquivoService"
+		cache-home="true" lookup-home-on-startup="false" resource-ref="false"
+		refresh-home-on-connect-failure="true" />
+	<!-- End  TransporteArquivoService -->
+
+	<!-- Start RelatArqEmitidosVenctoService  -->
+	<alias alias="RelatArqEmitidosVenctoService" name="RelatArqEmitidosVenctoEJB" />
+
+	<jee:remote-slsb id="RelatArqEmitidosVenctoEJB"
+		jndi-name="netservicos/ejb/emissao/RelatArqEmitidosVenctEJB"
+		business-interface="br.com.netservicos.novosms.emissao.core.facade.RelatArqEmitidosVenctoService"
+		cache-home="true" lookup-home-on-startup="false" resource-ref="false"
+		refresh-home-on-connect-failure="true" />
+	<!-- End RelatArqEmitidosVenctoService -->
+
+
+	<!-- Start DisparoGeracaoArquivoSafxService  -->
+	<alias alias="DisparoGeracaoArquivoSafxService" name="DisparoGeracaoArquivoSafxEJB" />
+
+	<jee:local-slsb id="DisparoGeracaoArquivoSafxEJB"
+		jndi-name="netservicos/ejb/local/emissao/DisparoGeracaoArquivoSafxEJB"
+		business-interface="br.com.netservicos.novosms.emissao.core.facade.DisparoGeracaoArquivoSafxService"
+		cache-home="true" lookup-home-on-startup="false" resource-ref="false" />
+	<!-- End DisparoGeracaoArquivoSafxService -->
+
+
+	<!-- Start FaturasEmailEJB  -->
+	<alias alias="FaturasEmailService" name="FaturasEmailEJB" />
+
+	<jee:remote-slsb id="FaturasEmailEJB"
+		jndi-name="netservicos/ejb/emissao/FaturasEmailEJB"
+		business-interface="br.com.netservicos.novosms.emissao.core.facade.FaturasEmailService"
+		cache-home="true" lookup-home-on-startup="false" resource-ref="false"
+		refresh-home-on-connect-failure="true" />
+	<!-- End FaturasEmailEJB -->
+	
+	<!-- Start TotalizadorArquivosQuitacaoDebitoEJB  -->
+	<alias alias="TotalizadorArquivosQuitacaoDebitoService" name="TotalizadorArquivosQuitacaoDebitoEJB" />
+
+	<jee:remote-slsb id="TotalizadorArquivosQuitacaoDebitoEJB"
+		jndi-name="netservicos/ejb/emissao/TotalizadorArquivosQuitacaoDebitoEJB"
+		business-interface="br.com.netservicos.novosms.emissao.core.facade.TotalizadorArquivosQuitacaoDebitoService"
+		cache-home="true" lookup-home-on-startup="false" resource-ref="false"
+		refresh-home-on-connect-failure="true" />
+	<!-- End TotalizadorArquivosQuitacaoDebitoEJB -->
+
+</beans>

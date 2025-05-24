@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!-- Layout do arquivo de Carta de Quitacao de Debito Anual Clientes à NET -->
+<!-- @athor: Wesley Santos -->
+<!-- @date: 27/05/2010 -->
+<!-- @version: 1.0 -->
+
+<leiauteGravacao formato="PADRAO" formatoResources="br\com\netservicos\novosms\emissao\resources\applicationContext-formatador.xml">
+	<linha tipo="header">
+		<atributo nome="tipo_registro"  formato="ALFA" inicio="1"   tamanho="2" valor="01"/>
+		<atributo nome="tipo_arquivo"   formato="ALFA" inicio="3"   tamanho="15"/>
+		<atributo nome="nome_arquivo"   formato="ALFA" inicio="18"  tamanho="115"/>
+		<atributo nome="data_inicio"    formato="ALFA" inicio="133" tamanho="10"/>
+		<atributo nome="hora_inicio"    formato="ALFA" inicio="143" tamanho="8"/>		
+	</linha>
+	<linha tipo="dadosOperadora">
+		<atributo nome="tipo_registro"  formato="ALFA" inicio="1"    tamanho="2" valor="02"/>
+		<atributo nome="base"         	formato="ALFA" inicio="3"    tamanho="11"/>
+		<atributo nome="cid_contrato"   formato="ALFA" inicio="14"   tamanho="6"/>
+		<atributo nome="nome_op"       	formato="ALFA" inicio="20"   tamanho="50"/>
+		<atributo nome="end_op"        	formato="ALFA" inicio="70"   tamanho="100"/>
+		<atributo nome="bairro_op"     	formato="ALFA" inicio="170"  tamanho="30"/>
+		<atributo nome="cep_op"        	formato="ALFA" inicio="200"  tamanho="30"/>
+		<atributo nome="tel_op"         formato="ALFA" inicio="230"  tamanho="20"/>
+		<atributo nome="cidade_op"      formato="ALFA" inicio="250"  tamanho="50"/>
+		<atributo nome="uf_op"          formato="ALFA" inicio="300"  tamanho="10"/>
+		<atributo nome="dados_net"      formato="ALFA" inicio="310"  tamanho="255"/>
+		<atributo nome="operacao" 		formato="ALFA" inicio="565"  tamanho="255"/>
+		<atributo nome="site_net" 		formato="ALFA" inicio="820"  tamanho="255"/>
+	</linha>
+	<linha tipo="dadosCliente">
+		<atributo nome="detalheCliente" formato="ALFA" inicio="1" tamanho="662"/>
+	</linha>
+	<linha tipo="corpoCarta">
+		<atributo nome="tipo_registro"  formato="ALFA" inicio="1" tamanho="2" valor="04"/>
+		<atributo nome="mensagem"       formato="ALFA" inicio="3" tamanho="62"/>
+	</linha>
+	<linha tipo="dadosEnvioOriginal">
+		<atributo nome="tipo_registro"  formato="ALFA" inicio="1"  tamanho="2" valor="05" obrigatorio="NAO"/>
+		<atributo nome="dataHoraEnvio"  formato="ALFA" inicio="3"  tamanho="22" obrigatorio="NAO"/>
+		<atributo nome="mensagem"       formato="ALFA" inicio="25" tamanho="44" obrigatorio="NAO"/>
+	</linha>
+	<linha tipo="trailler">
+		<atributo nome="tipo_registro"       formato="CONST"  inicio="1"  tamanho="2" valor="99" />
+		<atributo nome="data_fim"            formato="ALFA"   inicio="3"  tamanho="10"/>
+		<atributo nome="hora_fim"            formato="ALFA"   inicio="13" tamanho="8"/>
+		<atributo nome="quantidade_registro" formato="NUMERO" inicio="21" tamanho="15"/>	
+	</linha>
+</leiauteGravacao>
